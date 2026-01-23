@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YV Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <nav>
+            <div class="logo">YV</div>
+            <div class="hamburger" onclick="toggleMenu()">
+                <div class="menu-icon">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+            <ul class="nav-links" id="navMenu">
+                <div class="menu-items">
+                    <li><a href="#home" class="active" onclick="closeMenu()"><i
+                                class="fas fa-home"></i><span>Home</span></a></li>
+                    <li><a href="#about" onclick="closeMenu()"><i class="fas fa-user"></i><span>About</span></a></li>
+                    <li><a href="#skills" onclick="closeMenu()"><i class="fas fa-code"></i><span>Skills</span></a></li>
+                    <li><a href="#experience" onclick="closeMenu()"><i
+                                class="fas fa-briefcase"></i><span>Experience</span></a></li>
+                    <li><a href="#projects" onclick="closeMenu()"><i
+                                class="fas fa-laptop-code"></i><span>Projects</span></a></li>
+                    <li><a href="#achievements" onclick="closeMenu()"><i
+                                class="fas fa-trophy"></i><span>Achievements</span></a></li>
+                    <li><a href="#contact" onclick="closeMenu()"><i class="fas fa-envelope"></i><span>Contact</span></a>
+                    </li>
+                    <li class="mobile-resume"><a href="#" onclick="openResume(event); closeMenu();"><i
+                                class="fas fa-file-download"></i><span>Resume</span></a></li>
+                </div>
+            </ul>
+            <a href="vijay resume.pdf" class="resume-btn" onclick="openResume(event)">Resume</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-container">
+            <div class="profile-circle">
+                <img src="vijay.jpg" alt="VIJAY"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="profile-placeholder">YV</div>
+            </div>
+            <h1 class="hero-title">YADALA VIJAY</h1>
+            <p class="hero-role">CSE Student</p>
+            <p class="hero-subtitle">Full-Stack Developer & AI Enthusiast</p>
+            <p class="hero-description">
+                Passionate about building modern web applications and AI solutions. Proficient in full-stack development
+                with expertise in Angular, Java, and MySQL.
+            </p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                <a href="#projects" class="btn btn-secondary">View Projects</a>
+            </div>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/vijay-yadala-VD" target="_blank" rel="noopener noreferrer"
+                    aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://github.com/YADALAVIJAY" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://leetcode.com/" target="_blank" rel="noopener noreferrer" aria-label="LeetCode">
+                    <i class="fas fa-keyboard"></i>
+                </a>
+                <a href="mailto:vijayyadala302@gmail.com" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+            <div class="scroll-down">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-underline"></div>
+            <div class="about-content-text">
+                <p>
+                    B.Tech Computer Science student at GIET, Rajahmundry, specializing in full-stack development and AI.
+                    Passionate about building innovative solutions with modern web technologies and machine learning.
+                </p>
+            </div>
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-number">2+</div>
+                    <div class="stat-label">Internships</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">3+</div>
+                    <div class="stat-label">Projects</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience & Education Section -->
+    <section id="experience">
+        <div class="container">
+            <h2>Experience & Education</h2>
+            <div class="about-underline"></div>
+            <div class="experience-education-grid">
+                <!-- Experience Column -->
+                <div class="experience-column">
+                    <h3 class="column-title">Experience</h3>
+                    <div class="experience-item">
+                        <h4>Python Programming Intern</h4>
+                        <p class="company">Company Name</p>
+                        <p class="duration">May 3, 2025 - June 20, 2025</p>
+                        <ul class="responsibilities">
+                            <li>Developed web applications using Angular and Java</li>
+                            <li>Collaborated with team on full-stack projects</li>
+                            <li>Implemented RESTful APIs and database solutions</li>
+                        </ul>
+                        <div class="certificate-button-container">
+                            <button class="btn btn-small" onclick="openCertificate('python')">View Certificate</button>
+                        </div>
+                    </div>
+                    <div class="experience-item">
+                        <h4>AI/ML Intern</h4>
+                        <p class="company">Tech Company</p>
+                        <p class="duration">January 2024 - March 2024</p>
+                        <ul class="responsibilities">
+                            <li>Worked on machine learning models and AI solutions</li>
+                            <li>Built chatbots using Generative AI technologies</li>
+                            <li>Data analysis and model optimization</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Education Column -->
+                <div class="education-column">
+                    <h3 class="column-title">Education</h3>
+                    <div class="education-item">
+                        <h4>B.Tech in Computer Science</h4>
+                        <p class="degree">Godavari Institute of Engineering Technology, Rajahmundry</p>
+                        <p class="date">Expected 2027</p>
+                        <p class="details"><strong>CGPA:</strong> 9.08/10 | <strong>Location:</strong> AP, India</p>
+                    </div>
+                    <div class="education-item">
+                        <h4>Intermediate (MPC)</h4>
+                        <p class="degree">Sri Chaitanya Junior College, Tuni</p>
+                        <p class="date">2021 - 2023</p>
+                        <p class="details"><strong>Percentage:</strong> 95.8% | <strong>Location:</strong> AP, India</p>
+                    </div>
+                    <div class="education-item">
+                        <h4>Secondary School Certificate</h4>
+                        <p class="degree">Z.P High School, Danavipeta</p>
+                        <p class="date">2021</p>
+                        <p class="details"><strong>Percentage:</strong> 90% | <strong>Location:</strong> AP, India</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="skills">
+        <div class="container">
+            <h2>Skills</h2>
+            <div class="about-underline"></div>
+            <div class="skills-grid">
+                <div class="skill-category-card">
+                    <div class="skill-category-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Programming Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">C</span>
+                    </div>
+                </div>
+                <div class="skill-category-card">
+                    <div class="skill-category-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Frontend</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag">Bootstrap</span>
+                        <span class="skill-tag">Angular</span>
+                        <span class="skill-tag">React Native</span>
+                    </div>
+                </div>
+                <div class="skill-category-card">
+                    <div class="skill-category-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Tools & Technologies</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">REST APIs</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Spring Tool</span>
+                    </div>
+                </div>
+                <div class="skill-category-card">
+                    <div class="skill-category-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Other</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Data Structures</span>
+                        <span class="skill-tag">Algorithms</span>
+                        <span class="skill-tag">Generative AI</span>
+                        <span class="skill-tag">Problem Solving</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="about-underline"></div>
+            <div class="projects-grid">
+                <div class="project-card"
+                    style="background-image: linear-gradient(rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.9)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800');">
+                    <div class="project-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3>Student Detection</h3>
+                    <p>Built a comprehensive student detection system with real-time tracking and detailed analytics
+                        dashboard.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Angular</span>
+                        <span class="project-tag">Java</span>
+                        <span class="project-tag">MySQL</span>
+                    </div>
+                </div>
+                <div class="project-card"
+                    style="background-image: linear-gradient(rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.9)), url('https://images.unsplash.com/photo-1592210454359-9043f067919b?w=800');">
+                    <div class="project-icon">
+                        <i class="fas fa-cloud-sun"></i>
+                    </div>
+                    <h3>Weather App</h3>
+                    <p>Created a responsive weather application with real-time weather data, location-based forecasts,
+                        and interactive UI with weather animations.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">HTML</span>
+                        <span class="project-tag">CSS</span>
+                        <span class="project-tag">JavaScript</span>
+                    </div>
+                </div>
+                <div class="project-card"
+                    style="background-image: linear-gradient(rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.9)), url('https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800');">
+                    <div class="project-icon">
+                        <i class="fas fa-hotel"></i>
+                    </div>
+                    <h3>Hostel Management</h3>
+                    <p>A comprehensive Hostel Management System featuring Admin and Student dashboards, QR attendance
+                        tracking, and digital permission management.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Angular</span>
+                        <span class="project-tag">Java</span>
+                        <span class="project-tag">MySQL</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements">
+        <div class="container">
+            <h2>Achievements</h2>
+            <div class="about-underline"></div>
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div class="achievement-content">
+                        <h3>Oracle Generative AI</h3>
+                        <p>Oracle Cloud Infrastructure Generative AI Professional (2025)</p>
+                    </div>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="achievement-content">
+                        <h3>Project Portfolio</h3>
+                        <p>Completed multiple AI chatbot and web application projects</p>
+                    </div>
+                </div>
+            </div>
+            <div class="achievements-button-container">
+                <button class="btn btn-secondary" onclick="openCertificatesModal()">C&DB</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <div class="about-underline"></div>
+            <div class="skills-grid">
+                <div class="skill-category-card">
+                    <div class="skill-category-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Location</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Kakinada</span>
+                        <span class="skill-tag">Andhra Pradesh</span>
+                        <span class="skill-tag">India</span>
+                    </div>
+                </div>
+                <div class="skill-category-card">
+                    <div class="skill-category-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">vijayyadala302@gmail.com</span>
+                    </div>
+                </div>
+                <div class="skill-category-card">
+                    <div class="skill-category-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>Phone</h3>
+                    <div class="skill-tags">
+                        <a href="tel:+917702048127" class="skill-tag">+91 7702048127</a>
+                    </div>
+                </div>
+                <div class="skill-category-card">
+                    <div class="skill-category-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <h3>LinkedIn</h3>
+                    <div class="skill-tags">
+                        <a href="https://www.linkedin.com/in/vijay-yadala-VD" target="_blank" rel="noopener noreferrer"
+                            class="skill-tag">vijay-yadala-VD</a>
+                    </div>
+                </div>
+                <div class="skill-category-card">
+                    <div class="skill-category-icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <h3>GitHub</h3>
+                    <div class="skill-tags">
+                        <a href="https://github.com/YADALAVIJAY" target="_blank" rel="noopener noreferrer"
+                            class="skill-tag">YADALAVIJAY</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </div>
+
+    <!-- Certificates & Digital Badges Modal -->
+    <div id="certificatesModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Certificates & Digital Badges</h2>
+                <span class="close" onclick="closeCertificatesModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="certificates-grid">
+                    <div class="certificate-card">
+                        <div class="certificate-logo">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>Oracle Generative AI Certification</h3>
+                        <a href="oracle AI.pdf" target="_blank" class="certificate-link">View Certificate</a>
+                    </div>
+                    <div class="certificate-card">
+                        <div class="certificate-logo">
+                            <i class="fab fa-java"></i>
+                        </div>
+                        <h3>NPTEL Java Certification</h3>
+                        <a href="Programming in Java.pdf" target="_blank" class="certificate-link">View Certificate</a>
+                    </div>
+                    <div class="certificate-card">
+                        <div class="certificate-logo">
+                            <i class="fas fa-paper-plane"></i>
+                        </div>
+                        <h3>Postman Digital Badge</h3>
+                        <a href="Postman - Postman API Fundamentals Student Expert - 2025-10-10.png" target="_blank"
+                            class="certificate-link">View Badge</a>
+                    </div>
+                    <div class="certificate-card">
+                        <div class="certificate-logo">
+                            <i class="fab fa-network-wired"></i>
+                        </div>
+                        <h3>Cisco Certificate</h3>
+                        <a href="cisco1.pdf" target="_blank" class="certificate-link">View Certificate</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <button class="suggestion-btn" onclick="showTechSuggestion()">
+            <i class="fas fa-lightbulb"></i> Tech Tip
+        </button>
+        <p>&copy; 2025 vijay yadala. All rights reserved.</p>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="techToast" class="toast-notification">
+        <div class="toast-icon">
+            <i class="fas fa-robot"></i>
+        </div>
+        <div class="toast-content">
+            <h4>Tech Tip</h4>
+            <p id="toastMessage">Loading...</p>
+        </div>
+        <div class="toast-close" onclick="closeToast()">
+            <i class="fas fa-times"></i>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
