@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vijay Yadala - Resume</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --text-color: #333;
+            --light-bg: #f5f5f5;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .resume-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .contact-info {
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+
+        .contact-info span {
+            margin: 0 10px;
+        }
+
+        .contact-info a {
+            color: var(--text-color);
+            text-decoration: none;
+        }
+
+        section {
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            color: var(--accent-color);
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+        }
+
+        .experience-item,
+        .education-item,
+        .project-item {
+            margin-bottom: 15px;
+        }
+
+        .title-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .title {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: var(--primary-color);
+        }
+
+        .date,
+        .location {
+            font-size: 0.9rem;
+            color: #666;
+            font-style: italic;
+        }
+
+        .subtitle {
+            font-weight: 600;
+            color: #555;
+            margin-bottom: 5px;
+        }
+
+        ul {
+            margin: 5px 0;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 3px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+        }
+
+        .skill-category {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: var(--primary-color);
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .resume-container {
+                box-shadow: none;
+                padding: 0;
+                margin: 0;
+                width: 100%;
+                max-width: none;
+            }
+
+            .no-print {
+                display: none;
+            }
+
+            a {
+                text-decoration: none;
+                color: black;
+            }
+        }
+
+        .print-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+
+    <button onclick="window.print()" class="print-btn no-print"><i class="fas fa-print"></i> Print / Save as
+        PDF</button>
+
+    <div class="resume-container">
+        <header>
+            <h1>YADALA VIJAY</h1>
+            <p style="margin: 5px 0;">Full-Stack Developer & AI Enthusiast</p>
+            <div class="contact-info">
+                <span><i class="fas fa-envelope"></i> vijayyadala302@gmail.com</span>
+                <span><i class="fas fa-phone"></i> +91 7702048127</span>
+                <span><i class="fas fa-map-marker-alt"></i> Kakinada, AP, India</span>
+                <br>
+                <span><i class="fab fa-linkedin"></i> linkedin.com/in/vijay-yadala-VD</span>
+                <span><i class="fab fa-github"></i> github.com/YADALAVIJAY</span>
+            </div>
+        </header>
+
+        <section>
+            <h2>Education</h2>
+            <div class="education-item">
+                <div class="title-row">
+                    <div class="title">B.Tech in Computer Science</div>
+                    <div class="date">Expected 2027</div>
+                </div>
+                <div class="subtitle">Godavari Institute of Engineering Technology, Rajahmundry, AP</div>
+                <div>CGPA: 9.08/10</div>
+            </div>
+            <div class="education-item">
+                <div class="title-row">
+                    <div class="title">Intermediate (MPC)</div>
+                    <div class="date">2021 - 2023</div>
+                </div>
+                <div class="subtitle">Sri Chaitanya Junior College, Tuni, AP</div>
+                <div>Percentage: 95.8%</div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Experience</h2>
+            <div class="experience-item">
+                <div class="title-row">
+                    <div class="title">Python Programming Intern</div>
+                    <div class="date">May 2025 - June 2025</div>
+                </div>
+                <div class="subtitle">Company Name</div>
+                <ul>
+                    <li>Developed web applications using Angular and Java.</li>
+                    <li>Collaborated with team on full-stack projects.</li>
+                    <li>Implemented RESTful APIs and database solutions.</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <div class="title-row">
+                    <div class="title">AI/ML Intern</div>
+                    <div class="date">Jan 2024 - Mar 2024</div>
+                </div>
+                <div class="subtitle">Tech Company</div>
+                <ul>
+                    <li>Worked on machine learning models and AI solutions.</li>
+                    <li>Built chatbots using Generative AI technologies.</li>
+                    <li>Data analysis and model optimization.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Projects</h2>
+            <div class="project-item">
+                <div class="title-row">
+                    <div class="title">Hybrid Secure File Transfer</div>
+                </div>
+                <div class="subtitle">Java, Angular, MySQL, ClamAV</div>
+                <ul>
+                    <li>Developed a high-security file transfer system implementing AES & RSA encryption.</li>
+                    <li>Integrated ClamAV for real-time malware scanning of uploaded files.</li>
+                    <li>Ensured data integrity and confidentiality during transfer.</li>
+                </ul>
+            </div>
+            <div class="project-item">
+                <div class="title-row">
+                    <div class="title">Student Detection System</div>
+                </div>
+                <div class="subtitle">Angular, Java, MySQL</div>
+                <ul>
+                    <li>Built a comprehensive student detection system with real-time tracking.</li>
+                    <li>Designed a detailed analytics dashboard for monitoring.</li>
+                </ul>
+            </div>
+            <div class="project-item">
+                <div class="title-row">
+                    <div class="title">Hostel Management System</div>
+                </div>
+                <div class="subtitle">Angular, Java, MySQL</div>
+                <ul>
+                    <li>Created a full-stack management system with Admin and Student dashboards.</li>
+                    <li>Implemented QR attendance tracking and digital permission management.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div>
+                    <div class="skill-category">Languages</div>
+                    <div>Java, Python, C, JavaScript</div>
+                </div>
+                <div>
+                    <div class="skill-category">Frontend</div>
+                    <div>Angular, React Native, HTML5, CSS3, Bootstrap</div>
+                </div>
+                <div>
+                    <div class="skill-category">Tools & Tech</div>
+                    <div>Git, Node.js, Spring Boot, REST APIs</div>
+                </div>
+                <div>
+                    <div class="skill-category">Core Concepts</div>
+                    <div>Data Structures, Algorithms, Generative AI</div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Certifications</h2>
+            <ul>
+                <li>Oracle Cloud Infrastructure Generative AI Professional (2025)</li>
+                <li>NPTEL Java Certification</li>
+                <li>Postman API Fundamentals Student Expert</li>
+                <li>Cisco Networking Certificate</li>
+            </ul>
+        </section>
+    </div>
+
+</body>
+
+</html>

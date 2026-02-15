@@ -5,17 +5,17 @@ document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
         if (this.classList.contains('resume-link')) {
             return;
         }
-        
+
         e.preventDefault();
-        
+
         // Remove active class from all links
         document.querySelectorAll('nav a').forEach(link => {
             link.classList.remove('active');
         });
-        
+
         // Add active class to clicked link
         this.classList.add('active');
-        
+
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
             target.scrollIntoView({
@@ -42,6 +42,7 @@ function toggleMenu() {
     const hamburger = document.querySelector('.hamburger');
     navMenu.classList.toggle('active');
     hamburger.classList.toggle('active');
+    document.body.classList.toggle('no-scroll');
 }
 
 // Close Menu
@@ -50,14 +51,15 @@ function closeMenu() {
     const hamburger = document.querySelector('.hamburger');
     navMenu.classList.remove('active');
     hamburger.classList.remove('active');
+    document.body.classList.remove('no-scroll');
 }
 
 // Close menu when clicking outside
-document.addEventListener('click', function(event) {
+document.addEventListener('click', function (event) {
     const navMenu = document.getElementById('navMenu');
     const hamburger = document.querySelector('.hamburger');
     const isClickInside = navMenu.contains(event.target) || hamburger.contains(event.target);
-    
+
     if (!isClickInside && navMenu.classList.contains('active')) {
         closeMenu();
     }
@@ -67,8 +69,8 @@ document.addEventListener('click', function(event) {
 function openResume(e) {
     e.preventDefault();
     // Open resume PDF in new tab
-    window.open('vijay resume.pdf', '_blank');
-    
+    window.open('vijay_resume.pdf', '_blank');
+
     // If the PDF doesn't exist, show a message
     // You need to place your resume.pdf file in the same folder as index.html
 }
@@ -77,7 +79,7 @@ function openResume(e) {
 window.addEventListener('scroll', () => {
     let current = '';
     const sections = document.querySelectorAll('section');
-    
+
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
         const sectionHeight = section.clientHeight;
@@ -149,7 +151,7 @@ function closeCertificatesModal() {
 }
 
 // Close modal when clicking outside of it
-window.addEventListener('click', function(event) {
+window.addEventListener('click', function (event) {
     const modal = document.getElementById('certificatesModal');
     if (event.target === modal) {
         closeCertificatesModal();
@@ -157,7 +159,7 @@ window.addEventListener('click', function(event) {
 });
 
 // Close modal with ESC key
-document.addEventListener('keydown', function(event) {
+document.addEventListener('keydown', function (event) {
     if (event.key === 'Escape') {
         closeCertificatesModal();
     }
@@ -166,11 +168,11 @@ document.addEventListener('keydown', function(event) {
 // Open certificate function
 function openCertificate(type) {
     let certificateUrl = '';
-    
+
     if (type === 'python') {
         certificateUrl = 'python certificate.pdf';
     }
-    
+
     if (certificateUrl) {
         // Open certificate in new tab
         window.open(certificateUrl, '_blank');
@@ -207,14 +209,14 @@ const techSuggestions = [
 function showTechSuggestion() {
     const toast = document.getElementById('techToast');
     const message = document.getElementById('toastMessage');
-    
+
     if (toast && message) {
         // Random suggestion
         const randomTip = techSuggestions[Math.floor(Math.random() * techSuggestions.length)];
         message.textContent = randomTip;
-        
+
         toast.classList.add('active');
-        
+
         // Auto hide after 5 seconds
         setTimeout(() => {
             closeToast();
