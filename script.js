@@ -66,14 +66,7 @@ document.addEventListener('click', function (event) {
 });
 
 // Open Resume function
-function openResume(e) {
-    e.preventDefault();
-    // Open resume PDF in new tab
-    window.open('vijay_resume.pdf', '_blank');
-
-    // If the PDF doesn't exist, show a message
-    // You need to place your resume.pdf file in the same folder as index.html
-}
+// Replaced by inline Document Viewer Modal
 
 // Active navigation on scroll
 window.addEventListener('scroll', () => {
@@ -112,17 +105,15 @@ const observerOptions = {
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+            entry.target.classList.add('visible');
+            // Optional: unobserve after animating to only animate once
+            // observer.unobserve(entry.target);
         }
     });
 }, observerOptions);
 
-// Apply animation to cards and items
-document.querySelectorAll('.project-card, .achievement-item, .education-item').forEach(item => {
-    item.style.opacity = '0';
-    item.style.transform = 'translateY(30px)';
-    item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+// Apply animation to elements with fade-up or fade-in class
+document.querySelectorAll('.fade-up, .fade-in').forEach(item => {
     observer.observe(item);
 });
 
@@ -150,11 +141,48 @@ function closeCertificatesModal() {
     }
 }
 
+// Document Viewer Functions
+function openDocumentViewer(url, title = 'Document') {
+    const modal = document.getElementById('documentViewerModal');
+    const iframe = document.getElementById('docViewerIframe');
+    const titleEl = document.getElementById('docViewerTitle');
+
+    if (modal && iframe && titleEl) {
+        // Set the title
+        titleEl.textContent = title;
+        // Set the iframe source to the PDF/image
+        iframe.src = url;
+
+        // Show the modal
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeDocumentViewer() {
+    const modal = document.getElementById('documentViewerModal');
+    const iframe = document.getElementById('docViewerIframe');
+
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+
+        // Clear the iframe source so it doesn't keep running in the background
+        if (iframe) {
+            iframe.src = '';
+        }
+    }
+}
+
 // Close modal when clicking outside of it
 window.addEventListener('click', function (event) {
-    const modal = document.getElementById('certificatesModal');
-    if (event.target === modal) {
+    const certModal = document.getElementById('certificatesModal');
+    const docModal = document.getElementById('documentViewerModal');
+    if (event.target === certModal) {
         closeCertificatesModal();
+    }
+    if (event.target === docModal) {
+        closeDocumentViewer();
     }
 });
 
@@ -162,22 +190,12 @@ window.addEventListener('click', function (event) {
 document.addEventListener('keydown', function (event) {
     if (event.key === 'Escape') {
         closeCertificatesModal();
+        closeDocumentViewer();
     }
 });
 
 // Open certificate function
-function openCertificate(type) {
-    let certificateUrl = '';
-
-    if (type === 'python') {
-        certificateUrl = 'python certificate.pdf';
-    }
-
-    if (certificateUrl) {
-        // Open certificate in new tab
-        window.open(certificateUrl, '_blank');
-    }
-}
+// Replaced by inline Document Viewer Modal
 
 // Initialize with Home active on page load
 window.addEventListener('load', () => {
