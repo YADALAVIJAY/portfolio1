@@ -249,129 +249,19 @@ function closeToast() {
     }
 }
 
-// Cinematic Splash Screen Logic
+// Splash Screen Logic
 document.addEventListener('DOMContentLoaded', () => {
     const splash = document.getElementById('splash-screen');
     if (splash) {
         // Prevent scrolling while splash screen is active
         document.body.style.overflow = 'hidden';
 
-        // Set up Web Audio API for procedural thuds
-        let audioCtx;
-        try {
-            const AudioContext = window.AudioContext || window.webkitAudioContext;
-            audioCtx = new AudioContext();
-        } catch (e) {
-            console.warn("Web Audio API not supported", e);
-        }
-
-        function playThud() {
-            if (!audioCtx) return;
-            if (audioCtx.state === 'suspended') {
-                audioCtx.resume();
-            }
-            const osc = audioCtx.createOscillator();
-            const gainNode = audioCtx.createGain();
-
-            osc.type = 'sine';
-
-            // Low-frequency thump
-            osc.frequency.setValueAtTime(150, audioCtx.currentTime);
-            osc.frequency.exponentialRampToValueAtTime(40, audioCtx.currentTime + 0.1);
-
-            // Fast attack and decay for wood impact
-            gainNode.gain.setValueAtTime(1.5, audioCtx.currentTime);
-            gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.2);
-
-            osc.connect(gainNode);
-            gainNode.connect(audioCtx.destination);
-
-            osc.start();
-            osc.stop(audioCtx.currentTime + 0.2);
-        }
-
-        // User must click "Enter" to start AudioContext and animations
-        const startBtn = document.getElementById('start-btn');
-        const startOverlay = document.getElementById('start-overlay');
-
-        if (startBtn) {
-            startBtn.addEventListener('click', () => {
-                // Hide button overlay
-                startOverlay.classList.add('hidden');
-                // Trigger CSS animations
-                splash.classList.add('is-playing');
-
-                // Initialize audio context on user gesture
-                try {
-                    const AudioContext = window.AudioContext || window.webkitAudioContext;
-                    audioCtx = new AudioContext();
-                    if (audioCtx.state === 'suspended') {
-                        audioCtx.resume();
-                    }
-                } catch (e) {
-                    console.warn("Web Audio API not supported", e);
-                }
-
-                // Calculate impact times based on CSS delays + 60% of animation duration (1.2s * 0.6 = 0.72s)
-                const dropDelays = [100, 300, 500, 700, 900, 1100, 1300]; // in ms
-                const impactOffset = 720;
-
-                dropDelays.forEach((delay) => {
-                    setTimeout(() => {
-                        playThud();
-                    }, delay + impactOffset);
-                });
-
-                // Determine the dynamic greeting
-                let greetingText = "🙏 Welcome Sir";
-                let spokenText = "Welcome, Sir";
-                const hour = new Date().getHours();
-                if (hour >= 5 && hour < 12) {
-                    greetingText = "🙏 Good Morning Sir";
-                    spokenText = "Good morning, Sir";
-                } else if (hour >= 12 && hour < 17) {
-                    greetingText = "🙏 Good Afternoon Sir";
-                    spokenText = "Good afternoon, Sir";
-                } else if (hour >= 17 && hour < 21) {
-                    greetingText = "🙏 Good Evening Sir";
-                    spokenText = "Good evening, Sir";
-                } else {
-                    greetingText = "🙏 Good Night Sir";
-                    spokenText = "Good night, Sir";
-                }
-
-                // Set text and reveal plank
-                setTimeout(() => {
-                    const dynamicGreeting = document.getElementById('dynamic-greeting');
-                    const greetingPlank = document.getElementById('greeting-plank');
-                    if (dynamicGreeting && greetingPlank) {
-                        dynamicGreeting.textContent = greetingText;
-                        greetingPlank.classList.add('reveal');
-
-                        // Speak the greeting
-                        setTimeout(() => {
-                            if ('speechSynthesis' in window) {
-                                const utterance = new SpeechSynthesisUtterance(spokenText);
-                                utterance.rate = 0.9;
-                                utterance.pitch = 1.1;
-                                // Attempt to pick a natural voice if available
-                                const voices = window.speechSynthesis.getVoices();
-                                const preferredVoice = voices.find(v => v.lang.includes('en') && v.name.includes('Google'));
-                                if (preferredVoice) utterance.voice = preferredVoice;
-
-                                window.speechSynthesis.speak(utterance);
-                            }
-                        }, 500); // Speak half a second after plank reveal
-                    }
-                }, 2200); // 1300 + 720 ~ 2020ms last impact, show plank at 2.2s
-
-                // Hide splash screen after sequence finishes
-                setTimeout(() => {
-                    splash.classList.add('hidden');
-                    document.body.style.overflow = '';
-                }, 5000); // 5s total orchestration time
-            });
-        }
+        // Wait 2.8s total (1.5s animation + 0.7s delay + 0.6s buffer for visual comfort)
+        setTimeout(() => {
+            splash.classList.add('hidden');
+            // Re-enable scrolling
+            document.body.style.overflow = '';
+        }, 2800);
     }
 });
 
