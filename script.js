@@ -248,3 +248,19 @@ function closeToast() {
         toast.classList.remove('active');
     }
 }
+
+// Splash Screen Logic
+document.addEventListener('DOMContentLoaded', () => {
+    const splash = document.getElementById('splash-screen');
+    if (splash) {
+        // Prevent scrolling while splash screen is active
+        document.body.style.overflow = 'hidden';
+
+        // Wait 2.8s total (1.5s animation + 0.7s delay + 0.6s buffer for visual comfort)
+        setTimeout(() => {
+            splash.classList.add('hidden');
+            // Re-enable scrolling
+            document.body.style.overflow = '';
+        }, 2800);
+    }
+});
