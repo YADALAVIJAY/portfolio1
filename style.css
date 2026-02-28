@@ -1328,6 +1328,57 @@ footer {
     }
 }
 
+@media (max-width: 480px) {
+    .animated-letters {
+        gap: 0.3rem;
+    }
+
+    .wooden-block {
+        width: 35px;
+        height: 50px;
+        font-size: 1.8rem;
+    }
+
+    @keyframes woodenDrop {
+        0% {
+            transform: translateY(-120vh);
+            opacity: 0;
+        }
+
+        60% {
+            transform: translateY(0);
+            opacity: 1;
+            height: 40px;
+            margin-top: 10px;
+        }
+
+        70% {
+            transform: translateY(-15px);
+            height: 50px;
+            margin-top: 0;
+        }
+
+        85% {
+            transform: translateY(0);
+            height: 45px;
+            margin-top: 5px;
+        }
+
+        92% {
+            transform: translateY(-5px);
+            height: 50px;
+            margin-top: 0;
+        }
+
+        100% {
+            transform: translateY(0);
+            opacity: 1;
+            height: 50px;
+            margin-top: 0;
+        }
+    }
+}
+
 /* 
  * ==========================================
  * ABOUT CLEAN & TIMELINE TABS
@@ -1651,7 +1702,7 @@ footer {
     .hero-image-wrapper {
         grid-row: 1;
         margin-bottom: 2rem;
-        max-width: 300px;
+        max-width: 220px;
     }
 }
 
