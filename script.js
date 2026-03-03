@@ -39,7 +39,7 @@ window.addEventListener('scroll', () => {
 // Hamburger Menu Toggle
 function toggleMenu() {
     const navMenu = document.getElementById('navMenu');
-    const hamburger = document.querySelector('.hamburger');
+    const hamburger = document.querySelector('.new-hamburger');
     navMenu.classList.toggle('active');
     hamburger.classList.toggle('active');
     document.body.classList.toggle('no-scroll');
@@ -48,17 +48,17 @@ function toggleMenu() {
 // Close Menu
 function closeMenu() {
     const navMenu = document.getElementById('navMenu');
-    const hamburger = document.querySelector('.hamburger');
+    const hamburger = document.querySelector('.new-hamburger');
     navMenu.classList.remove('active');
-    hamburger.classList.remove('active');
+    if (hamburger) hamburger.classList.remove('active');
     document.body.classList.remove('no-scroll');
 }
 
 // Close menu when clicking outside
 document.addEventListener('click', function (event) {
     const navMenu = document.getElementById('navMenu');
-    const hamburger = document.querySelector('.hamburger');
-    const isClickInside = navMenu.contains(event.target) || hamburger.contains(event.target);
+    const hamburger = document.querySelector('.new-hamburger');
+    const isClickInside = navMenu.contains(event.target) || (hamburger && hamburger.contains(event.target));
 
     if (!isClickInside && navMenu.classList.contains('active')) {
         closeMenu();
@@ -284,3 +284,38 @@ function switchTab(tabId, btnElement) {
         targetLane.classList.add('active');
     }
 }
+
+// Theme Toggle Logic
+document.addEventListener('DOMContentLoaded', () => {
+    const sunBtn = document.querySelector('.theme-toggle-vertical button:first-child');
+    const moonBtn = document.querySelector('.theme-toggle-vertical button:last-child');
+
+    // Check saved theme or system preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+        sunBtn.classList.add('active');
+        moonBtn.classList.remove('active');
+    } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        moonBtn.classList.add('active');
+        sunBtn.classList.remove('active');
+    }
+
+    // Toggle to Light Mode
+    sunBtn.addEventListener('click', () => {
+        document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+        sunBtn.classList.add('active');
+        moonBtn.classList.remove('active');
+    });
+
+    // Toggle to Dark Mode
+    moonBtn.addEventListener('click', () => {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+        moonBtn.classList.add('active');
+        sunBtn.classList.remove('active');
+    });
+});
+

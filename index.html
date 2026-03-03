@@ -5,12 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YV Portfolio</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
     <!-- Google Fonts: Outfit -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=16">
+    <link rel="stylesheet" href="style.css?v=18">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -42,37 +45,71 @@
     </div>
 
     <!-- Header & Navigation -->
-    <header class="glass-nav">
-        <nav>
-            <div class="logo">YV<span class="dot">.</span></div>
-            <div class="hamburger" onclick="toggleMenu()">
-                <div class="menu-icon">
+    <header class="custom-nav-layout" id="mainHeader">
+        <div class="custom-nav-container">
+            <!-- Main Nav Pill -->
+            <div class="nav-pill-main">
+                <div class="custom-logo">
+                    <span class="logo-text">YV</span><span class="logo-dot">.</span>
+                </div>
+
+                <ul class="nav-pill-links" id="navMenu">
+                    <li>
+                        <a href="#about" class="nav-link-anchor" onclick="closeMenu()">
+                            <input type="text" class="nav-input-text active-pill" value="About" readonly>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#projects" class="nav-link-anchor" onclick="closeMenu()">
+                            <div class="nav-input-group">
+                                <input type="text"
+                                    class="nav-input-text grey-text active-cursor pointer-events-auto cursor-pointer"
+                                    value="Projects" readonly>
+                                <i class="fas fa-caret-down dropdown-icon"></i>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#skills" class="nav-link-anchor" onclick="closeMenu()">
+                            <div class="nav-input-group">
+                                <input type="text"
+                                    class="nav-input-text grey-text active-cursor pointer-events-auto cursor-pointer"
+                                    value="Skills" readonly>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)"
+                            onclick="openDocumentViewer('vijay_resume.pdf', 'Resume'); closeMenu()"
+                            class="nav-link-anchor">
+                            <span class="nav-resume-pill">Resume</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="new-hamburger" onclick="toggleMenu()">
                     <i class="fas fa-bars"></i>
                 </div>
             </div>
-            <ul class="nav-links" id="navMenu">
-                <div class="menu-items">
-                    <li><a href="#home" class="active" onclick="closeMenu()"><i
-                                class="fas fa-home"></i><span>Home</span></a></li>
-                    <li><a href="#about" onclick="closeMenu()"><i
-                                class="fas fa-user-astronaut"></i><span>About</span></a></li>
-                    <li><a href="#experience" onclick="closeMenu()"><i
-                                class="fas fa-briefcase"></i><span>Journey</span></a></li>
-                    <li><a href="#skills" onclick="closeMenu()"><i class="fas fa-code"></i><span>Skills</span></a></li>
-                    <li><a href="#projects" onclick="closeMenu()"><i class="fas fa-rocket"></i><span>Projects</span></a>
-                    </li>
-                    <li><a href="#contact" onclick="closeMenu()"><i
-                                class="fas fa-paper-plane"></i><span>Contact</span></a></li>
-                    <li class="mobile-resume"><a href="javascript:void(0)"
-                            onclick="openDocumentViewer('vijay_resume.pdf', 'Resume'); closeMenu();"><i
-                                class="fas fa-file-download"></i><span>Resume</span></a></li>
+
+            <!-- Auth / Actions -->
+            <div class="nav-actions-group">
+                <a href="#contact" class="nav-btn-grey">
+                    <i class="fas fa-user"></i> <input type="text"
+                        class="action-input dark-text pointer-events-auto cursor-pointer" value="Contact" readonly>
+                </a>
+                <a href="javascript:void(0)" onclick="openDocumentViewer('vijay_resume.pdf', 'Resume')"
+                    class="nav-btn-black">
+                    <i class="fas fa-sign-in-alt icon-cyan"></i> <input type="text"
+                        class="action-input light-text pointer-events-auto cursor-pointer" value="Resume" readonly>
+                </a>
+                <div class="theme-toggle-vertical">
+                    <button class="active"><i class="fas fa-sun"></i></button>
+                    <div class="theme-toggle-divider"></div>
+                    <button><i class="fas fa-moon"></i></button>
                 </div>
-            </ul>
-            <a href="javascript:void(0)" onclick="openDocumentViewer('vijay_resume.pdf', 'Resume')"
-                class="btn btn-primary resume-btn resume-link">
-                <i class="fas fa-file-alt"></i> Resume
-            </a>
-        </nav>
+            </div>
+        </div>
     </header>
 
     <!-- Hero Section -->
