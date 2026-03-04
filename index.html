@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=18">
+    <link rel="stylesheet" href="style.css?v=19">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -484,9 +484,8 @@
                 <div class="header-line"></div>
             </div>
 
-            <div class="bento-grid" style="justify-content: center; display: flex; flex-wrap: wrap; gap: 2rem;">
-                <div class="glass-card bento-item hover-lift fade-up delay-1 achievement-box"
-                    style="flex: 1; min-width: 300px; max-width: 400px;">
+            <div class="achievements-flex">
+                <div class="glass-card achievement-box hover-glow fade-up delay-1">
                     <div class="achievement-icon"><i class="fas fa-certificate text-gradient"></i></div>
                     <div class="achievement-text">
                         <h3>Oracle Generative AI</h3>
@@ -494,20 +493,19 @@
                     </div>
                 </div>
 
-                <div class="glass-card bento-item hover-lift fade-up delay-2 achievement-box"
-                    style="flex: 1; min-width: 300px; max-width: 400px;">
+                <div class="glass-card achievement-box hover-glow fade-up delay-2">
                     <div class="achievement-icon"><i class="fas fa-trophy text-gradient"></i></div>
                     <div class="achievement-text">
                         <h3>Project Portfolio</h3>
                         <p>Delivered multiple production-ready AI chatbot and full-stack web application systems.</p>
                     </div>
                 </div>
+            </div>
 
-                <div class="span-4 center-content mt-4 fade-up delay-3">
-                    <button class="btn btn-primary" onclick="openCertificatesModal()">
-                        <i class="fas fa-award"></i> View All Credentials
-                    </button>
-                </div>
+            <div class="center-content fade-up delay-3">
+                <button class="btn btn-primary" onclick="openCertificatesModal()">
+                    <i class="fas fa-award"></i> View All Credentials
+                </button>
             </div>
         </div>
     </section>
@@ -559,45 +557,51 @@
     </section>
 
     <!-- Certificates Modal -->
-    <div id="certificatesModal" class="modal glass-modal">
-        <div class="modal-content glass-card">
+    <div id="certificatesModal" class="modal">
+        <div class="modal-content">
             <div class="modal-header">
                 <h2>Verified <span class="text-gradient">Credentials</span></h2>
                 <span class="close-btn" onclick="closeCertificatesModal()">&times;</span>
             </div>
-            <div class="modal-body bento-grid no-gap-mobile">
-                <div class="glass-card bento-item hover-glow mini-cert">
-                    <i class="fas fa-robot text-gradient fa-3x"></i>
-                    <div class="mini-cert-content">
+            <div class="modal-body">
+                <div class="cert-grid">
+                    <!-- Oracle Gen AI -->
+                    <div class="cert-card hover-glow">
+                        <div class="cert-icon-wrap">
+                            <i class="fas fa-robot text-gradient"></i>
+                        </div>
                         <h4>Oracle Gen AI</h4>
                         <a href="javascript:void(0)" onclick="openDocumentViewer('oracle AI.pdf', 'Oracle Gen AI')"
-                            class="btn-micro mt-1">View</a>
+                            class="btn-micro"><i class="fas fa-eye"></i> View</a>
                     </div>
-                </div>
-                <div class="glass-card bento-item hover-glow mini-cert">
-                    <i class="fab fa-java text-gradient fa-3x"></i>
-                    <div class="mini-cert-content">
+                    <!-- NPTEL Java -->
+                    <div class="cert-card hover-glow">
+                        <div class="cert-icon-wrap">
+                            <i class="fab fa-java text-gradient"></i>
+                        </div>
                         <h4>NPTEL Java</h4>
                         <a href="javascript:void(0)"
-                            onclick="openDocumentViewer('Programming in Java.pdf', 'NPTEL Java')"
-                            class="btn-micro mt-1">View</a>
+                            onclick="openDocumentViewer('Programming in Java.pdf', 'NPTEL Java')" class="btn-micro"><i
+                                class="fas fa-eye"></i> View</a>
                     </div>
-                </div>
-                <div class="glass-card bento-item hover-glow mini-cert">
-                    <i class="fas fa-paper-plane text-gradient fa-3x"></i>
-                    <div class="mini-cert-content">
+                    <!-- Postman API -->
+                    <div class="cert-card hover-glow">
+                        <div class="cert-icon-wrap">
+                            <i class="fas fa-paper-plane text-gradient"></i>
+                        </div>
                         <h4>Postman API</h4>
                         <a href="javascript:void(0)"
                             onclick="openDocumentViewer('Postman - Postman API Fundamentals Student Expert - 2025-10-10.png', 'Postman API')"
-                            class="btn-micro mt-1">View</a>
+                            class="btn-micro"><i class="fas fa-eye"></i> View</a>
                     </div>
-                </div>
-                <div class="glass-card bento-item hover-glow mini-cert">
-                    <i class="fab fa-network-wired text-gradient fa-3x"></i>
-                    <div class="mini-cert-content">
+                    <!-- Cisco Cyber -->
+                    <div class="cert-card hover-glow">
+                        <div class="cert-icon-wrap">
+                            <i class="fas fa-shield-alt text-gradient"></i>
+                        </div>
                         <h4>Cisco Cyber</h4>
                         <a href="javascript:void(0)" onclick="openDocumentViewer('cisco1.pdf', 'Cisco Cyber')"
-                            class="btn-micro mt-1">View</a>
+                            class="btn-micro"><i class="fas fa-eye"></i> View</a>
                     </div>
                 </div>
             </div>

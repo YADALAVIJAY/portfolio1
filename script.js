@@ -128,8 +128,8 @@ if (footer) {
 function openCertificatesModal() {
     const modal = document.getElementById('certificatesModal');
     if (modal) {
-        modal.style.display = 'block';
-        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        modal.style.display = 'flex';
+        document.body.classList.add('no-scroll');
     }
 }
 
@@ -137,7 +137,7 @@ function closeCertificatesModal() {
     const modal = document.getElementById('certificatesModal');
     if (modal) {
         modal.style.display = 'none';
-        document.body.style.overflow = 'auto'; // Enable scrolling
+        document.body.classList.remove('no-scroll');
     }
 }
 
@@ -148,42 +148,29 @@ function openDocumentViewer(url, title = 'Document') {
     const titleEl = document.getElementById('docViewerTitle');
 
     if (modal && iframe && titleEl) {
-        // Set the title
         titleEl.textContent = title;
-        // Set the iframe source to the PDF/image
         iframe.src = url;
-
-        // Show the modal
-        modal.style.display = 'block';
-        document.body.style.overflow = 'hidden';
+        modal.style.display = 'flex';
+        document.body.classList.add('no-scroll');
     }
 }
 
 function closeDocumentViewer() {
     const modal = document.getElementById('documentViewerModal');
     const iframe = document.getElementById('docViewerIframe');
-
     if (modal) {
         modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-
-        // Clear the iframe source so it doesn't keep running in the background
-        if (iframe) {
-            iframe.src = '';
-        }
+        document.body.classList.remove('no-scroll');
+        if (iframe) iframe.src = '';
     }
 }
 
-// Close modal when clicking outside of it
+// Close modal when clicking the backdrop
 window.addEventListener('click', function (event) {
     const certModal = document.getElementById('certificatesModal');
     const docModal = document.getElementById('documentViewerModal');
-    if (event.target === certModal) {
-        closeCertificatesModal();
-    }
-    if (event.target === docModal) {
-        closeDocumentViewer();
-    }
+    if (event.target === certModal) closeCertificatesModal();
+    if (event.target === docModal) closeDocumentViewer();
 });
 
 // Close modal with ESC key
